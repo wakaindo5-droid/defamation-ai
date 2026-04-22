@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Defamation AI</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    textarea { width: 100%; height: 100px; }
+    button { padding: 10px; margin-top: 10px; }
+  </style>
+</head>
+<body>
+
+  <h2>Defamation AI</h2>
+
+  <textarea id="text" placeholder="Type your message..."></textarea><br>
+  <button onclick="analyze()">Analyze Risk</button>
+
+  <h3 id="result"></h3>
+
+  <script>
+    function analyze() {
+      let text = document.getElementById("text").value.toLowerCase();
+
+      if (text.includes("scammer") || text.includes("fraud")) {
+        document.getElementById("result").innerText =
+          "🔴 High Risk: This may harm someone's reputation. Try softer wording.";
+      } else if (text.includes("suspicious")) {
+        document.getElementById("result").innerText =
+          "🟡 Medium Risk: This could be misinterpreted. Consider rephrasing.";
+      } else {
+        document.getElementById("result").innerText =
+          "🟢 Low Risk: This looks safe.";
+      }
+    }
+  </script>
+
+</body>
+</html>
